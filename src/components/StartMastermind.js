@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 
 import DisplayCodeNumbers from './DisplayCodeNumbers';
+import Input1 from './Input1';
 
 function StartMastermind() {
 
     const[codeNumbers, updateCodeNumbers] = useState("")
     const[guess, updateGuess] = useState(0)
     const[showStart, updateStart] = useState(true)
+    const[showInput1, updateShowInput1] = useState(false)
+    
 
 
     // Fetch the number code
@@ -22,7 +25,8 @@ function StartMastermind() {
         })
 
         updateStart(!showStart)
-
+        updateShowInput1(!showInput1)
+        
     }
 
 
@@ -36,12 +40,19 @@ console.log(codeNumbers)
                     Start Mastermind
                     <br />
                     <button onClick={fetchNumberCode}>click</button>
-                </div>
+
+                    </div>
                 )
             }
 
 
                 <DisplayCodeNumbers codeNumbers={codeNumbers} />
+
+
+                { 
+                    showInput1 && <Input1 codeNumbers={codeNumbers} />
+                }
+
             </div>
     )
 }
