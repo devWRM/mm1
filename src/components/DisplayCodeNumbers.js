@@ -1,6 +1,10 @@
 import React from 'react';
 
-function DisplayCodeNumbers({ codeNumbers }) {
+// import Input1 from './Input1';
+
+function DisplayCodeNumbers({ codeNumbers, input1Form }) {
+// debugger;
+
     return (
         <div>
             
@@ -8,7 +12,9 @@ function DisplayCodeNumbers({ codeNumbers }) {
             {codeNumbers[1]}
             {codeNumbers[2]}
             {codeNumbers[3]}
-            
+
+
+            {/* <Input1 codeNumbers={codeNumbers} input1Form={input1Form} /> */}
         </div>
     )
 }
