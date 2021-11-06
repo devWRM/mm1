@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function Input1() {
+function Input1({ codeNumbers }) {
+
+
     return (
-        <div>
+        <form>
             
-        </div>
+                <div>
+                    <input type="text"></input>
+                    <button type="submit">submit</button>
+                </div>
+        
+        </form>
     )
 }
 
