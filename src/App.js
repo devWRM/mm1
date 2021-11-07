@@ -1,6 +1,6 @@
 import './App.css';
 
-import MastermindContainer from './components/MastermindContainer';
+// import MastermindContainer from './components/MastermindContainer';
 import GameContainer from './components/GameContainer';
 
 function App() {
@@ -16,7 +16,9 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          LinkedIn
+          {/* LinkedIn */}
+          <br />
+          MASTERMIND
         </a>
 
       </header>
