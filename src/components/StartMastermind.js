@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
-import DisplayCodeNumbers from './DisplayCodeNumbers';
-import Input1 from './Input1';
+import DisplayCodeNumbers from './DisplayCodeNumbers.js';
+import Input1 from './Input1.js';
+import GuessList from './GuessList.js';
+// import StatusMessage from './StatusMessage.js';
 
-import StatusMessage from './StatusMessage.js';
+
 
 function StartMastermind() {
 
@@ -11,6 +13,8 @@ function StartMastermind() {
     const[guessList, updateGuessList] = useState([])
     const[showStart, updateStart] = useState(true)
     const[showInput1, updateShowInput1] = useState(false)
+    const[showSecretCode, updateShowSecretCode] = useState(false)
+
     // const[message, updateMessage] = useState("")
     // const[checker, updateChecker] = useState("")
     
@@ -37,8 +41,6 @@ function StartMastermind() {
     function handleUserGuess(userGuessInput){
     
         updateGuessList([ userGuessInput, ...guessList])
-        
-// debugger;
 
         // NOTE CanNOT use code below because do NOT have access to secret 4-number code codeNumbers state
         // if((guessNumbers[0] === codeNumbers[0]) && (guessNumbers[1] === codeNumbers[1]) && (guessNumbers[2] === codeNumbers[2]) && (guessNumbers[3] === codeNumbers[3]) && ) {
@@ -48,11 +50,13 @@ function StartMastermind() {
         
     }
 
+    function revealSecretCode(status) {
+        updateShowSecretCode(status)
+    }
 
-let testing = codeNumbers;
-// message && alert(message)
+
 console.log(codeNumbers)
-console.log("GUESS", guessList)
+console.log("GUESSES", guessList)
 
     return (
         <div style={{marginTop: "10px"}}> 
@@ -67,15 +71,28 @@ console.log("GUESS", guessList)
             }
 
 
-                <DisplayCodeNumbers codeNumbers={codeNumbers} />
 
-
-                { 
-                    showInput1 && <Input1 codeNumbers={codeNumbers} handleUserGuess={handleUserGuess} />
+                {
+                    showSecretCode ? <DisplayCodeNumbers codeNumbers={codeNumbers} /> : ""
                 }
 
 
+
+                { 
+                    showInput1 && <Input1 guessList={guessList} handleUserGuess={handleUserGuess} revealSecretCode={revealSecretCode} />
+                }
+
+
+                <GuessList codeNumbers={codeNumbers} guessList={guessList} />
                 {/* <StatusMessage message={message} /> */}
+
+
+
+
+
+
+
+
 
             </div>
     )
