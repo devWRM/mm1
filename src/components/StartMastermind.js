@@ -3,19 +3,23 @@ import React, { useState } from 'react';
 import DisplayCodeNumbers from './DisplayCodeNumbers';
 import Input1 from './Input1';
 
+import StatusMessage from './StatusMessage.js';
+
 function StartMastermind() {
 
     const[codeNumbers, updateCodeNumbers] = useState("")
     const[guess, updateGuess] = useState(0)
     const[showStart, updateStart] = useState(true)
     const[showInput1, updateShowInput1] = useState(false)
+    const[message, updateMessage] = useState("")
+    const[checker, updateChecker] = useState("")
     
 
 
     // Fetch the number code
     // Change to number array & pop off empty space
     // Then store in state
-    function fetchNumberCode() {
+    function fetchSecretCode() {
         fetch("https://www.random.org/integers/?num=4&min=0&max=7&col=1&base=10&format=plain&rnd=new")            
         .then(resp => resp.text())
         .then(numbers => { 
@@ -30,8 +34,25 @@ function StartMastermind() {
     }
 
 
-console.log(codeNumbers)
+    function handleUserGuess(userInput){
+    
+        let guessNumbers = userInput.split("")
 
+        updateChecker(userInput)
+// debugger;
+
+        // NOTE CanNOT use code below because do NOT have access to secret 4-number code codeNumbers state
+        // if((guessNumbers[0] === codeNumbers[0]) && (guessNumbers[1] === codeNumbers[1]) && (guessNumbers[2] === codeNumbers[2]) && (guessNumbers[3] === codeNumbers[3]) && ) {
+        //     updateMessage("You broke the code!")
+        //     alert("You broke the code!")
+        // }  
+        
+    }
+
+
+let testing = codeNumbers;
+// message && alert(message)
+console.log(codeNumbers)
 
     return (
         <div style={{marginTop: "10px"}}> 
@@ -39,7 +60,7 @@ console.log(codeNumbers)
                 (<div>
                     Start Mastermind
                     <br />
-                    <button onClick={fetchNumberCode}>click</button>
+                    <button onClick={fetchSecretCode}>click</button>
 
                     </div>
                 )
@@ -50,8 +71,11 @@ console.log(codeNumbers)
 
 
                 { 
-                    showInput1 && <Input1 codeNumbers={codeNumbers} />
+                    showInput1 && <Input1 codeNumbers={codeNumbers} handleUserGuess={handleUserGuess} />
                 }
+
+
+                <StatusMessage message={message} />
 
             </div>
     )
