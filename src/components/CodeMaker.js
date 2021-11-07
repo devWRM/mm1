@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import StartMastermind from './StartMastermind';
+// import StartMastermind from './StartMastermind';
 
 class CodeMaker extends Component {
 
@@ -11,7 +11,7 @@ class CodeMaker extends Component {
 
             <div>
 
-                <StartMastermind />
+                {/* <StartMastermind /> */}
             </div>
         )
     }
