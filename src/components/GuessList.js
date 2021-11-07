@@ -22,7 +22,7 @@ function GuessList({ codeNumbers, guessList }) {
 
     return (
         <div>
-                You have { 10 - guessList.length } guesses 
+                You have { 10 - guessList.length } guesses left.
                 
                 { guesses }
 
