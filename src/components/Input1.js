@@ -8,18 +8,21 @@ function Input1({ codeNumbers, handleUserGuess }) {
     }
 
     function handleSubmitUserInput(e) {
+        let userGuessToArr = userGuess.split("")
 // debugger;
         e.preventDefault();
 
-        if(!!userGuess && (userGuess.length === 4) ) {
+        if(!!userGuess && (userGuess.length === 4) && (!userGuessToArr.includes("8")) && (!userGuessToArr.includes("9"))) {
             // handleUserGuess(userGuess)
-            handleUserGuess(userGuess)
-        } else {
+            handleUserGuess(userGuessToArr)
             updateUserGuess("")
+        } else {
+            alert("Enter 4 numbers & use only numbers from 0 to 7")
+            // updateUserGuess("")
         }
 
         // Reset state
-        updateUserGuess("")
+        // updateUserGuess("")
     }
 
 
@@ -33,7 +36,7 @@ function Input1({ codeNumbers, handleUserGuess }) {
             
                 
                     <label>Enter 4 numbers: 0 - 7</label>
-                    <input  type="text" 
+                    <input  type="number" 
                             value={userGuess}
                             onChange={handleUserGuessInput}
                             style={{width: "150px"}}                            
