@@ -5,17 +5,16 @@ import Guess from './Guess.js';
 
 
 
-function GuessList({ codeNumbers, guessList }) {
-    const[list, updateList] = useState("")
-    
+function GuessList({ codeNumbers, guessList }) {    
     // debugger;
 
     let guesses =   guessList.map(guess => {
                             
-                        return <div key={Math.floor(Math.random() * 10000)}>
+                        return <div key={guess.id}>
                             {/* <Guess guess={guess} /> */}
 
-                            { guess.join("")}
+                            {/* { guess.join("")} */}
+                            { guess.code}
                         </div>
                     })
 
