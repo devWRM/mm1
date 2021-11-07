@@ -14,6 +14,7 @@ function StartMastermind() {
     const[showStart, updateStart] = useState(true)
     const[showInput1, updateShowInput1] = useState(false)
     const[showSecretCode, updateShowSecretCode] = useState(false)
+    const[guessStatus,updateGuessStatus] = useState([])
 
     // const[message, updateMessage] = useState("")
     // const[checker, updateChecker] = useState("")
@@ -38,9 +39,11 @@ function StartMastermind() {
     }
 
 
-    function handleUserGuess(userGuessInput){
+    function handleUserGuess(userGuessInput, status){
     
-        updateGuessList([ userGuessInput, ...guessList])
+        updateGuessList([ userGuessInput, ...guessList ])
+
+        updateGuessStatus([ status, ...guessStatus ])
 
         // NOTE CanNOT use code below because do NOT have access to secret 4-number code codeNumbers state
         // if((guessNumbers[0] === codeNumbers[0]) && (guessNumbers[1] === codeNumbers[1]) && (guessNumbers[2] === codeNumbers[2]) && (guessNumbers[3] === codeNumbers[3]) && ) {
@@ -50,8 +53,8 @@ function StartMastermind() {
         
     }
 
-    function revealSecretCode(status) {
-        updateShowSecretCode(status)
+    function revealSecretCode(revealStatus) {
+        updateShowSecretCode(revealStatus)
     }
 
 
