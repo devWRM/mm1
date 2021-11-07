@@ -18,11 +18,11 @@ function Input1({ codeNumbers, handleUserGuess }) {
             updateUserGuess("")
         } else {
             alert("enter 4 numbers | use only numbers from 0 to 7 | do not use 8 or 9")
-            // updateUserGuess("")
+            updateUserGuess("")
         }
 
         // Reset state
-        // updateUserGuess("")
+        updateUserGuess("")
     }
 
 
