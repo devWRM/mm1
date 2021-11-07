@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Input1({ codeNumbers, handleUserGuess }) {
+function Input1({ guessList, handleUserGuess, revealSecretCode }) {
     const[userGuess, updateUserGuess] = useState("")
 
     function handleUserGuessInput(e) {
@@ -19,6 +19,11 @@ function Input1({ codeNumbers, handleUserGuess }) {
         } else {
             alert("enter 4 numbers - use numbers from 0 to 7 - do not use 8 or 9")
             updateUserGuess("")
+        }
+
+
+        if(guessList.length > 8) {
+            revealSecretCode(true)
         }
 
         // Reset state
