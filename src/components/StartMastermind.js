@@ -8,7 +8,7 @@ import StatusMessage from './StatusMessage.js';
 function StartMastermind() {
 
     const[codeNumbers, updateCodeNumbers] = useState("")
-    const[guess, updateGuess] = useState(0)
+    const[guess, updateGuess] = useState("")
     const[showStart, updateStart] = useState(true)
     const[showInput1, updateShowInput1] = useState(false)
     const[message, updateMessage] = useState("")
@@ -34,11 +34,12 @@ function StartMastermind() {
     }
 
 
-    function handleUserGuess(userInput){
+    function handleUserGuess(userGuessInput){
     
-        let guessNumbers = userInput.split("")
+        let guessNumbers = userGuessInput.split("")
 
-        updateChecker(userInput)
+        updateGuess(guessNumbers)
+        
 // debugger;
 
         // NOTE CanNOT use code below because do NOT have access to secret 4-number code codeNumbers state
@@ -53,6 +54,7 @@ function StartMastermind() {
 let testing = codeNumbers;
 // message && alert(message)
 console.log(codeNumbers)
+console.log("GUESS", guess)
 
     return (
         <div style={{marginTop: "10px"}}> 
