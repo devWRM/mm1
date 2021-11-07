@@ -1,11 +1,11 @@
 import React from 'react';
 
-import CodeMaker from './CodeMaker';
+import StartMastermind from './StartMastermind';
 
 function GameContainer() {
     return (
         <div>
-            <CodeMaker />
+            <StartMastermind />
         </div>
     )
 }
