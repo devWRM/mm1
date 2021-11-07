@@ -8,11 +8,11 @@ import StatusMessage from './StatusMessage.js';
 function StartMastermind() {
 
     const[codeNumbers, updateCodeNumbers] = useState("")
-    const[guess, updateGuess] = useState("")
+    const[guessList, updateGuessList] = useState([])
     const[showStart, updateStart] = useState(true)
     const[showInput1, updateShowInput1] = useState(false)
-    const[message, updateMessage] = useState("")
-    const[checker, updateChecker] = useState("")
+    // const[message, updateMessage] = useState("")
+    // const[checker, updateChecker] = useState("")
     
 
 
@@ -36,9 +36,7 @@ function StartMastermind() {
 
     function handleUserGuess(userGuessInput){
     
-        // let guessNumbers = userGuessInput.split("")
-
-        updateGuess(userGuessInput)
+        updateGuessList([ userGuessInput, ...guessList])
         
 // debugger;
 
@@ -54,7 +52,7 @@ function StartMastermind() {
 let testing = codeNumbers;
 // message && alert(message)
 console.log(codeNumbers)
-console.log("GUESS", guess)
+console.log("GUESS", guessList)
 
     return (
         <div style={{marginTop: "10px"}}> 
@@ -77,7 +75,7 @@ console.log("GUESS", guess)
                 }
 
 
-                <StatusMessage message={message} />
+                {/* <StatusMessage message={message} /> */}
 
             </div>
     )
