@@ -36,9 +36,9 @@ function StartMastermind() {
 
     function handleUserGuess(userGuessInput){
     
-        let guessNumbers = userGuessInput.split("")
+        // let guessNumbers = userGuessInput.split("")
 
-        updateGuess(guessNumbers)
+        updateGuess(userGuessInput)
         
 // debugger;
 
