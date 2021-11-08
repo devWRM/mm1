@@ -63,7 +63,7 @@ function Input1({ handleShowInput1, codeNumbers, guessList, handleUserGuess, rev
                     <input  type="number" 
                             value={userGuess.code}
                             onChange={handleUserGuessInput}
-                            style={{width: "150px"}}                            
+                            style={{width: "150px", margin: "5px"}}                            
                     />
                     <button type="submit">submit</button>
                 
