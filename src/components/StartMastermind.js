@@ -40,7 +40,7 @@ function StartMastermind() {
     }
 
 
-    function handleUserGuess(userGuessInput, status){
+    function handleUserGuess(userGuessInput){
     
         updateGuessList([ userGuessInput, ...guessList ])
 
@@ -90,7 +90,7 @@ console.log("GUESSES", guessList)
                 }
 
 
-                <GuessList codeNumbers={codeNumbers} guessList={guessList} />
+                <GuessList guessList={guessList} />
                 {/* <StatusMessage message={message} /> */}
 
 
