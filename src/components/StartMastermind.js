@@ -62,6 +62,17 @@ function StartMastermind() {
         updateShowInput1(showStatus)
     }
 
+    function handleNewGame() {
+        updateCodeNumbers("")
+        updateGuessList([])
+        updateStart(true)
+        updateShowInput1(false)
+        updateShowSecretCode(false)
+
+    }
+
+
+
 console.log(codeNumbers)
 console.log("GUESSES", guessList)
 
@@ -96,7 +107,7 @@ console.log("GUESSES", guessList)
 
 
 
-
+                <button onClick={handleNewGame} style={{ marginTop: "20px"}}>Click for New Game</button>
 
 
 
