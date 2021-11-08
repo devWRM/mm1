@@ -14,6 +14,9 @@ function StartMastermind() {
     const[showStart, updateStart] = useState(true)
     const[showInput1, updateShowInput1] = useState(false)
     const[showSecretCode, updateShowSecretCode] = useState(false)  // <<= false initial
+    const[showNewGameButton, updateShowNewGameButton] = useState(false)
+
+
     // const[guessStatus,updateGuessStatus] = useState([])
 
     // const[message, updateMessage] = useState("")
@@ -68,7 +71,11 @@ function StartMastermind() {
         updateStart(true)
         updateShowInput1(false)
         updateShowSecretCode(false)
+        updateShowNewGameButton(false)
+    }
 
+    function handleShowNewGameButton(newGameButtonStatus) {
+        updateShowNewGameButton(newGameButtonStatus)
     }
 
 
@@ -97,7 +104,7 @@ console.log("GUESSES", guessList)
 
 
                 { 
-                    showInput1 && <Input1 handleShowInput1={handleShowInput1} codeNumbers={codeNumbers} guessList={guessList} handleUserGuess={handleUserGuess} revealSecretCode={revealSecretCode} />
+                    showInput1 && <Input1 handleShowNewGameButton={handleShowNewGameButton} handleShowInput1={handleShowInput1} codeNumbers={codeNumbers} guessList={guessList} handleUserGuess={handleUserGuess} revealSecretCode={revealSecretCode} />
                 }
 
 
@@ -106,9 +113,9 @@ console.log("GUESSES", guessList)
 
 
 
-
-                <button onClick={handleNewGame} style={{ marginTop: "20px"}}>Click for New Game</button>
-
+                {
+                    showNewGameButton ? <button onClick={handleNewGame} style={{ marginTop: "20px"}}>Click for New Game</button> : ""
+                }
 
 
 
