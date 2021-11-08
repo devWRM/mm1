@@ -5,7 +5,7 @@ import Guess from './Guess.js';
 
 
 
-function GuessList({ codeNumbers, guessList }) {    
+function GuessList({ guessList }) {    
     // debugger;
 
     let guesses =   guessList.map(guess => {
@@ -14,7 +14,7 @@ function GuessList({ codeNumbers, guessList }) {
                             {/* <Guess guess={guess} /> */}
 
                             {/* { guess.join("")} */}
-                            { guess.code}
+                            { guess.code} [{guess.status}]
                         </div>
                     })
 
