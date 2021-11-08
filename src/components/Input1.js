@@ -1,33 +1,52 @@
 import React, { useState } from 'react';
 
-function Input1({ guessList, handleUserGuess, revealSecretCode }) {
-    const[userGuess, updateUserGuess] = useState("")
+function Input1({ handleShowInput1, codeNumbers, guessList, handleUserGuess, revealSecretCode }) {
+// debugger;
+    const[userGuess, updateUserGuess] = useState({
+        id: "",
+        code: "",
+        status: ""
+    })
+
 
     function handleUserGuessInput(e) {
-        updateUserGuess(e.target.value)
+        updateUserGuess({ ...userGuess, code: e.target.value })
     }
 
     function handleSubmitUserInput(e) {
-        let userGuessToArr = userGuess.split("")
-// debugger;
         e.preventDefault();
 
-        if(!!userGuess && (userGuess.length === 4) && (!userGuessToArr.includes("8")) && (!userGuessToArr.includes("9"))) {
-            // handleUserGuess(userGuess)
-            handleUserGuess(userGuessToArr)
-            updateUserGuess("")
+        // Used to check for 8 & 9
+        let userGuessToArr = userGuess.code.split("")
+
+// debugger;      
+
+        if(!!userGuess.code && (userGuess.code.length === 4) && (!userGuessToArr.includes("8")) && (!userGuessToArr.includes("9"))) {
+            // handleUserGuess(userGuessToArr)
+
+            if(codeNumbers === userGuess.code) {
+                handleUserGuess({ ...userGuess, id: Math.floor(Math.random()*10000), status: "CONGRATULATIONS! You broke the code!" })
+                revealSecretCode(true)
+                handleShowInput1(false)
+            } else {
+                handleUserGuess({ ...userGuess, id: Math.floor(Math.random()*10000), status: "Checking status..." })
+                updateUserGuess({ ...userGuess, id: "", code: "", status: ""})            
+            }
+
+            
         } else {
             alert("enter 4 numbers - use numbers from 0 to 7 - do not use 8 or 9")
-            updateUserGuess("")
+            updateUserGuess({ ...userGuess, id: "", code: "", status: ""})            
         }
 
 
         if(guessList.length > 8) {
             revealSecretCode(true)
+            handleShowInput1(false)
         }
 
         // Reset state
-        updateUserGuess("")
+        updateUserGuess({ ...userGuess, id: "", code: "", status: ""})            
     }
 
 
@@ -42,7 +61,7 @@ function Input1({ guessList, handleUserGuess, revealSecretCode }) {
                 
                     <label>Enter 4 numbers: 0 - 7</label>
                     <input  type="number" 
-                            value={userGuess}
+                            value={userGuess.code}
                             onChange={handleUserGuessInput}
                             style={{width: "150px"}}                            
                     />
