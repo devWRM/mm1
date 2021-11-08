@@ -13,8 +13,8 @@ function StartMastermind() {
     const[guessList, updateGuessList] = useState([])
     const[showStart, updateStart] = useState(true)
     const[showInput1, updateShowInput1] = useState(false)
-    const[showSecretCode, updateShowSecretCode] = useState(false)
-    const[guessStatus,updateGuessStatus] = useState([])
+    const[showSecretCode, updateShowSecretCode] = useState(false)  // <<= false initial
+    // const[guessStatus,updateGuessStatus] = useState([])
 
     // const[message, updateMessage] = useState("")
     // const[checker, updateChecker] = useState("")
@@ -29,7 +29,8 @@ function StartMastermind() {
         .then(resp => resp.text())
         .then(numbers => { 
             let codedNumbers = numbers.split("\n")
-            codedNumbers.pop()        
+            codedNumbers.pop() 
+            codedNumbers = codedNumbers.join("")       
             updateCodeNumbers(codedNumbers)
         })
 
@@ -43,7 +44,7 @@ function StartMastermind() {
     
         updateGuessList([ userGuessInput, ...guessList ])
 
-        updateGuessStatus([ status, ...guessStatus ])
+        // updateGuessStatus([ status, ...guessStatus ])
 
         // NOTE CanNOT use code below because do NOT have access to secret 4-number code codeNumbers state
         // if((guessNumbers[0] === codeNumbers[0]) && (guessNumbers[1] === codeNumbers[1]) && (guessNumbers[2] === codeNumbers[2]) && (guessNumbers[3] === codeNumbers[3]) && ) {
@@ -57,6 +58,9 @@ function StartMastermind() {
         updateShowSecretCode(revealStatus)
     }
 
+    function handleShowInput1(showStatus) {
+        updateShowInput1(showStatus)
+    }
 
 console.log(codeNumbers)
 console.log("GUESSES", guessList)
@@ -82,7 +86,7 @@ console.log("GUESSES", guessList)
 
 
                 { 
-                    showInput1 && <Input1 guessList={guessList} handleUserGuess={handleUserGuess} revealSecretCode={revealSecretCode} />
+                    showInput1 && <Input1 handleShowInput1={handleShowInput1} codeNumbers={codeNumbers} guessList={guessList} handleUserGuess={handleUserGuess} revealSecretCode={revealSecretCode} />
                 }
 
 
