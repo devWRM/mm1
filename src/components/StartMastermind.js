@@ -10,7 +10,7 @@ import GuessList from './GuessList.js';
 function StartMastermind() {
 
     const[codeNumbers, updateCodeNumbers] = useState("")
-    const[guessList, updateGuessList] = useState([])
+    const[guessList, updateGuessList] = useState([])        //<<= []
     const[showStart, updateStart] = useState(true)
     const[showInput1, updateShowInput1] = useState(false)
     const[showSecretCode, updateShowSecretCode] = useState(false)  // <<= false initial
@@ -46,7 +46,7 @@ function StartMastermind() {
     function handleUserGuess(userGuessInput){
     
         updateGuessList([ userGuessInput, ...guessList ])
-
+// debugger;
         // updateGuessStatus([ status, ...guessStatus ])
 
         // NOTE CanNOT use code below because do NOT have access to secret 4-number code codeNumbers state
@@ -56,6 +56,7 @@ function StartMastermind() {
         // }  
         
     }
+
 
     function revealSecretCode(revealStatus) {
         updateShowSecretCode(revealStatus)
