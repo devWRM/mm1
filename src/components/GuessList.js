@@ -11,19 +11,23 @@ function GuessList({ guessList }) {
     let guesses =   guessList.map(guess => {
                             
                         return <div key={guess.id}>
-                            {/* <Guess guess={guess} /> */}
+                            
+                            { guess.code} [ {guess.status} ]
 
-                            {/* { guess.join("")} */}
-                            { guess.code} [{guess.status}]
+
                         </div>
                     })
 
+    
 
     return (
         <div>
                 <p> <b> You have { 10 - guessList.length } guesses left. </b> </p>
                 
                 { guesses }
+
+                {/* NOTE Code in notes for blinking text */}
+
 
         </div>
     )
