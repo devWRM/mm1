@@ -13,6 +13,10 @@ function Input1({ handleShowNewGameButton, handleShowInput1, codeNumbers, guessL
         updateUserGuess({ ...userGuess, code: e.target.value })
     }
 
+    function handleStatusHints(hints) {
+        return updateUserGuess({ ...userGuess, status: hints})
+    }
+
     function handleSubmitUserInput(e) {
         e.preventDefault();
 
@@ -23,21 +27,72 @@ function Input1({ handleShowNewGameButton, handleShowInput1, codeNumbers, guessL
 
         if(!!userGuess.code && (userGuess.code.length === 4) && (!userGuessToArr.includes("8")) && (!userGuessToArr.includes("9"))) {
             // handleUserGuess(userGuessToArr)
+            // updateUserGuess({ ...userGuess, id: Math.floor(Math.random()*10000) })
 
             if(codeNumbers === userGuess.code) {
-                handleUserGuess({ ...userGuess, id: Math.floor(Math.random()*10000), status: "CONGRATULATIONS! You broke the code!" })
+                handleUserGuess({ ...userGuess, id: Math.floor(Math.random()*10000), status: "🔴🔴🔴🔴 CONGRATULATIONS Code-Breaker!" })
                 revealSecretCode(true)
                 handleShowNewGameButton(true)
                 handleShowInput1(false)
             } else {
-                handleUserGuess({ ...userGuess, id: Math.floor(Math.random()*10000), status: "Checking status..." })
-                updateUserGuess({ ...userGuess, id: "", code: "", status: ""})            
+           
+                // handleUserGuess({ ...userGuess, id: Math.floor(Math.random()*10000), status: "Checking status..." })
+                // updateUserGuess({ ...userGuess, id: "", code: "", status: ""}) 
+                
+                // MASTERMIND HINTS
+                // White indicates ⚪️	=>>	Correct color Incorrect column  =>> correct number / incorrect column
+                // Red indicates 🔴	=>> Correct color Correct column    =>> correct number / correct column
+                // NOTE Check for red & remove red pairs from both codes
+                // NOTE Then iterate
+
+                let hints = "";
+
+             
+                    setTimeout( () => { 
+                    
+                        // let hints = "";
+                        let codeMaker = codeNumbers.split("")
+                        let codeBreaker = userGuess.code.split("")
+            
+                        for(let idx = 0; idx < codeMaker.length; idx++) {
+                            if(codeMaker[idx] === codeBreaker[idx]) {
+                                hints = hints + " 🔴 "                           
+                            }
+                        }
+
+              
+                        // handleUserGuess({ ...userGuess, id: Math.floor(Math.random()*10000), status: handleStatusHints(hints) })
+                        // updateUserGuess({ ...userGuess, id: "", code: "", status: ""})
+                     
+                        handleStatusHints(hints)
+                        
+                       
+                    }, 15);       // Set enough time (5000 & NOT 1000) to capture hints
+
+                
+                    function getHandler() {
+                        handleUserGuess({ ...userGuess, id: Math.floor(Math.random()*10000), status: hints })
+
+                    }
+                    setTimeout(getHandler, 20);
+
+                    // handleUserGuess({ ...userGuess, id: Math.floor(Math.random()*10000) })
+                    
+                    function getReset() {
+                        updateUserGuess({ ...userGuess, id: "", code: "", status: ""})
+
+                    }
+                    setTimeout(getReset, 25)
+                    
+
+
             }
+
 
             
         } else {
             alert("enter 4 numbers - use numbers from 0 to 7 - do not use 8 or 9")
-            updateUserGuess({ ...userGuess, id: "", code: "", status: ""})            
+            updateUserGuess({ ...userGuess, id: "", code: "", status: "" })            
         }
 
 
