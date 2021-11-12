@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import DisplayCodeNumbers from './DisplayCodeNumbers.js';
 import Input1 from './Input1.js';
 import GuessList from './GuessList.js';
-// import StatusMessage from './StatusMessage.js';
 
 
 
@@ -17,16 +16,9 @@ function StartMastermind() {
     const[showNewGameButton, updateShowNewGameButton] = useState(false)
 
 
-    // const[guessStatus,updateGuessStatus] = useState([])
-
-    // const[message, updateMessage] = useState("")
-    // const[checker, updateChecker] = useState("")
-    
-
-
-    // Fetch the number code
-    // Change to number array & pop off empty space
-    // Then store in state
+    // Fetch the secret number code
+    // Change fetched data to number array & pop off empty space then re-join
+    // Then store the string secret code in state
     function fetchSecretCode() {
         fetch("https://www.random.org/integers/?num=4&min=0&max=7&col=1&base=10&format=plain&rnd=new")            
         .then(resp => resp.text())
@@ -37,24 +29,17 @@ function StartMastermind() {
             updateCodeNumbers(codedNumbers)
         })
 
+        // Hide start to restrict user access
+        // Reveal the form for user guess input
         updateStart(!showStart)
         updateShowInput1(!showInput1)
         
     }
 
 
-    function handleUserGuess(userGuessInput){
-    
+    // add user's guess to the list of guesses
+    function handleUserGuess(userGuessInput){  
         updateGuessList([ userGuessInput, ...guessList ])
-// debugger;
-        // updateGuessStatus([ status, ...guessStatus ])
-
-        // NOTE CanNOT use code below because do NOT have access to secret 4-number code codeNumbers state
-        // if((guessNumbers[0] === codeNumbers[0]) && (guessNumbers[1] === codeNumbers[1]) && (guessNumbers[2] === codeNumbers[2]) && (guessNumbers[3] === codeNumbers[3]) && ) {
-        //     updateMessage("You broke the code!")
-        //     alert("You broke the code!")
-        // }  
-        
     }
 
 
@@ -62,10 +47,12 @@ function StartMastermind() {
         updateShowSecretCode(revealStatus)
     }
 
+    // 
     function handleShowInput1(showStatus) {
         updateShowInput1(showStatus)
     }
 
+    // Reset ALL states
     function handleNewGame() {
         updateCodeNumbers("")
         updateGuessList([])
@@ -75,6 +62,8 @@ function StartMastermind() {
         updateShowNewGameButton(false)
     }
 
+    // Shows the new game button when game is NOT in progress
+    // Hides the new game button when a game is in progress
     function handleShowNewGameButton(newGameButtonStatus) {
         updateShowNewGameButton(newGameButtonStatus)
     }
@@ -82,10 +71,12 @@ function StartMastermind() {
 
 
 console.log(codeNumbers)
-console.log("GUESSES", guessList)
+// console.log("GUESSES", guessList)
 
     return (
         <div style={{marginTop: "10px"}}> 
+
+        {/* Show/Hide initial game message & button to start a new game */}
             { showStart && 
                 (<div>
                     Start Mastermind
