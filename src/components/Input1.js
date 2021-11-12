@@ -36,12 +36,11 @@ function Input1({ handleShowNewGameButton, handleShowInput1, codeNumbers, guessL
                 handleShowInput1(false)
             } else {
            
-                // handleUserGuess({ ...userGuess, id: Math.floor(Math.random()*10000), status: "Checking status..." })
-                // updateUserGuess({ ...userGuess, id: "", code: "", status: ""}) 
-                
+                       
                 // MASTERMIND HINTS
                 // White indicates ⚪️	=>>	Correct color Incorrect column  =>> correct number / incorrect column
                 // Red indicates 🔴	=>> Correct color Correct column    =>> correct number / correct column
+                // Blue indicates 🔵 =>> NOT a correct color =>> incorrect number
                 // NOTE Check for red & remove red pairs from both codes
                 // NOTE Then iterate
 
@@ -53,16 +52,45 @@ function Input1({ handleShowNewGameButton, handleShowInput1, codeNumbers, guessL
                         // let hints = "";
                         let codeMaker = codeNumbers.split("")
                         let codeBreaker = userGuess.code.split("")
+                        let codeLength = codeMaker.length
+                        let correctIndices = []
             
-                        for(let idx = 0; idx < codeMaker.length; idx++) {
+                        for(let idx = 0; idx < codeLength; idx++) {
+                        // DO ALL BALLS 🔴 ⚪️ 🔵 INSIDE OF FOR LOOP
+
+                        // Correct number in correct location =>> 🔴
                             if(codeMaker[idx] === codeBreaker[idx]) {
-                                hints = hints + " 🔴 "                           
+                                hints = hints + " 🔴 "   
+                                
+                                // collect indices to be removed outside of if statement
+                                // correctIndices.push(idx)
+
+                                codeMaker[idx] = "x"
+                                codeBreaker[idx] = "x"
                             }
+
+                            // For loop with if statement checks for .includes
+                            
+                            // If statement check for blue
+
                         }
 
-              
-                        // handleUserGuess({ ...userGuess, id: Math.floor(Math.random()*10000), status: handleStatusHints(hints) })
-                        // updateUserGuess({ ...userGuess, id: "", code: "", status: ""})
+                        // Check if remaining codeBreaker numbers are included in codeMaker
+                        for(let codeBreakerIdx = 0; codeBreakerIdx < codeLength; codeBreakerIdx++) {
+                            if(codeBreaker[codeBreakerIdx] !== "x") {
+                                if(codeMaker.includes(codeBreaker[codeBreakerIdx])) {
+                                    hints = hints + " ⚪️ "
+
+                                    let xMaker = codeMaker.indexOf(codeBreaker[codeBreakerIdx])
+                                    codeMaker[xMaker] = "x"
+                                    // codeBreaker[codeBreakerIdx] = "x"
+                                } else {
+                                    hints = hints + " 🔵 "
+                                }
+                            }
+
+                        }
+
                      
                         handleStatusHints(hints)
                         
