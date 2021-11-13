@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 
+
 import DisplayCodeNumbers from './DisplayCodeNumbers.js';
 import Input1 from './Input1.js';
 import GuessList from './GuessList.js';
+
+import Button from '@material-ui/core/Button';
 
 
 
@@ -63,7 +66,7 @@ function StartMastermind() {
     }
 
     // Shows the new game button when game is NOT in progress
-    // Hides the new game button when a game is in progress
+    // Hides the new game button when a game IS in progress
     function handleShowNewGameButton(newGameButtonStatus) {
         updateShowNewGameButton(newGameButtonStatus)
     }
@@ -81,12 +84,12 @@ console.log(codeNumbers)
                 (<div>
                     Start Mastermind
                     <br />
-                    <button onClick={fetchSecretCode}>click</button>
+                    {/* <button onClick={fetchSecretCode}>click</button> */}
+                    <Button variant="contained" onClick={fetchSecretCode}>click</Button>
 
                     </div>
                 )
             }
-
 
 
                 {
@@ -101,8 +104,6 @@ console.log(codeNumbers)
 
 
                 <GuessList guessList={guessList} />
-                {/* <StatusMessage message={message} /> */}
-
 
 
                 {
