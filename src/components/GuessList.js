@@ -5,7 +5,7 @@ import Guess from './Guess.js';
 
 
 
-function GuessList({ guessList }) {    
+function GuessList({ message, guessList }) {    
     // debugger;
 
     let guesses =   guessList.map(guess => {
@@ -21,8 +21,17 @@ function GuessList({ guessList }) {
     
 
     return (
-        <div>
-                <p> <b> You have { 10 - guessList.length } guesses left. </b> </p>
+        <div>   
+                <p> <b> You have { 10 - guessList.length } guesses. </b> </p>
+                {message}
+
+                {/* { 10 - guessList.length === 0 && <div>Sorry... Try again!</div>} */}
+               
+                <p>
+                    🔴 Correct number in correct location | 
+                    ⚪️  Correct number in wrong location | 
+                    🔵 Incorrect number
+                </p>
                 
                 { guesses }
 

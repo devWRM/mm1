@@ -123,7 +123,12 @@ function Input1({ handleShowNewGameButton, handleShowInput1, codeNumbers, guessL
             updateUserGuess({ ...userGuess, id: "", code: "", status: "" })            
         }
 
-
+        // NOTE If statement set to 8 (NOT 10) because: 
+        // -> guessList is NOT updated HERE until AFTER submit clicked for NEXT guess input
+        // -- so guessList showing HERE always reflects 1 guess behind
+        // -- so has to be triggered earlier due to the delayed update
+        // So when 9 guesses are shown in browser, ONLY 8 reflected HERE
+        // So ACTUAL BROWSER 10 guesses is reflected here by (guessList.length > 8) setting guessList to trigger at 9
         if(guessList.length > 8) {
             revealSecretCode(true)
             handleShowNewGameButton(true)
