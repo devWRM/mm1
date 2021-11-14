@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+
+
 function Input1({ handleShowNewGameButton, handleShowInput1, codeNumbers, guessList, handleUserGuess, revealSecretCode }) {
 // debugger;
     const[userGuess, updateUserGuess] = useState({
@@ -30,7 +32,7 @@ function Input1({ handleShowNewGameButton, handleShowInput1, codeNumbers, guessL
             // updateUserGuess({ ...userGuess, id: Math.floor(Math.random()*10000) })
 
             if(codeNumbers === userGuess.code) {
-                handleUserGuess({ ...userGuess, id: Math.floor(Math.random()*10000), status: "🔴🔴🔴🔴 CONGRATULATIONS Code-Breaker!" })
+                handleUserGuess({ ...userGuess, id: Math.floor(Math.random()*10000), status: "🔴🔴🔴🔴 You Broke the Code! 🔴🔴🔴🔴" })
                 revealSecretCode(true)
                 handleShowNewGameButton(true)
                 handleShowInput1(false)
