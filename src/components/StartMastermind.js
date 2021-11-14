@@ -6,7 +6,7 @@ import Input1 from './Input1.js';
 import GuessList from './GuessList.js';
 
 import Button from '@material-ui/core/Button';
-import { Typography } from '@material-ui/core';
+import { Typography, Container } from '@material-ui/core';
 // import SaveIcon from '@material-ui/icons/Save';
 
 
@@ -78,7 +78,10 @@ console.log(codeNumbers)
 // console.log("GUESSES", guessList)
 
     return (
-        <div style={{marginTop: "10px"}}> 
+        // <div style={{marginTop: "10px"}}> 
+
+    <>
+    <container>
 
         {/* Show/Hide initial game message & button to start a new game */}
             { showStart && 
@@ -87,7 +90,11 @@ console.log(codeNumbers)
                         <Typography variant="h1">Start Mastermind</Typography>
                         <br />
 
-                        <Button variant="contained" color="primary" size="large" onClick={fetchSecretCode}>click</Button>
+                        <Button  variant="contained" color="primary" size="large" onClick={fetchSecretCode}>
+                            <i class="material-icons">circle</i> 
+                            click
+                        </Button>
+
 
                     </div>
                 )
@@ -112,10 +119,14 @@ console.log(codeNumbers)
                     showNewGameButton ? <button onClick={handleNewGame} style={{ marginTop: "20px"}}>Click for New Game</button> : ""
                 }
 
+    </container>
+    </>
 
-
-            </div>
     )
 }
 
 export default StartMastermind;
+ 
+ 
+ 
+            {/* </div> */}
