@@ -2,7 +2,7 @@ import React from 'react';
 
 import StartMastermind from './StartMastermind';
 
-import { Card, CardContent, CardActions, CssBaseline, Grid, Container  } from '@material-ui/core';
+import { Card, CardContent, CardActions, CssBaseline, Container  } from '@material-ui/core';
 
 
 function GameContainer() {
@@ -12,9 +12,9 @@ function GameContainer() {
             <CssBaseline />
                 <main>
                     <div>
-                        <container>
+                        <Container>
                             <StartMastermind />
-                        </container>
+                        </Container>
                     </div>
                 </main>
         </div>
