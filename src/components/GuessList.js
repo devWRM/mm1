@@ -1,6 +1,10 @@
 import React, {  useState } from 'react';
 
-import Guess from './Guess.js';
+// import Guess from './Guess.js';
+
+import { Typography } from '@material-ui/core';
+
+
 
 
 
@@ -18,21 +22,22 @@ function GuessList({ message, guessList }) {
                         </div>
                     })
 
-    
+                    console.log(guessList.length) 
 
     return (
         <div>   {/*         <i class="material-icons">cloud</i>     */}
                 
-                <p> <b> You have { 10 - guessList.length } guesses. </b> </p>
-                {message}
+                <p> <b> You have { 10 - guessList.length } {guessList.length === 9 ? "guess" : "guesses"}. </b> </p>
+               
+                {/* {message} */}
 
                 {/* { 10 - guessList.length === 0 && <div>Sorry... Try again!</div>} */}
                
-                <p>
+                <Typography  variant="h7" color="textSecondary" gutterBottom>
                     🔴 Correct number in correct location | 
                     ⚪️  Correct number in wrong location | 
                     🔵 Incorrect number
-                </p>
+                </Typography>
                 
                 { guesses }
 
