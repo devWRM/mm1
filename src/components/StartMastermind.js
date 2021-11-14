@@ -6,7 +6,7 @@ import Input1 from './Input1.js';
 import GuessList from './GuessList.js';
 
 import Button from '@material-ui/core/Button';
-import { Typography, Container } from '@material-ui/core';
+import { Container, Typography } from '@material-ui/core';
 // import SaveIcon from '@material-ui/icons/Save';
 
 
@@ -89,7 +89,7 @@ console.log(codeNumbers)
     return ( 
 
     <>
-    <Container>
+    <Container style={{ marginTop: '50px'}}>
 
         {/* Show/Hide initial game message & button to start a new game */}
             { showStart && 
@@ -102,53 +102,71 @@ console.log(codeNumbers)
                             <i class="material-icons">circle</i> 
                             click
                         </Button>
-
-
                     </div>
                 )
             }
 
 
 
-                {
-                    showNewGameButton ? <button onClick={handleNewGame}>Click for New Game</button> : ""
-                }
 
 
-
-                {
-                    showGuesses && 
-                        <div>
-                            <Typography  variant="h5" color="textPrimary">
-                                You have { 10 - guessList.length } {guessList.length === 9 ? "guess" : "guesses"}. 
-                            </Typography>
+        <div>
                 
+                        {
+                            showNewGameButton ? <Button variant="contained" color="secondary" onClick={handleNewGame}>Click for New Game</Button> : ""
+                        }
                 
-                            <Typography  variant="h7" color="textSecondary">
-                                🔴 correct number & correct location | 
-                                ⚪️  correct number & wrong location | 
-                                🔵 incorrect number
-                            </Typography>
+
+
+                
+                        {
+                            showGuesses && 
+                            <div>
+                                
+                                
+                                    <Typography  variant="h7" color="textSecondary">
+                                        🔴 correct number & correct location | 
+                                        ⚪️  correct number & wrong location | 
+                                        🔵 incorrect number
+                                    </Typography>
+                                
+
+
+                                
+                                    <Typography  variant="h5" color="textPrimary">
+                                        You have { 10 - guessList.length } {guessList.length === 9 ? "guess" : "guesses"}. 
+                                    </Typography>
+                                
+
+
+                    
+                                    { 
+                                        showInput1 && <Input1 handleShowNewGameButton={handleShowNewGameButton} handleShowInput1={handleShowInput1} codeNumbers={codeNumbers} guessList={guessList} handleUserGuess={handleUserGuess} revealSecretCode={revealSecretCode} />
+                                    }
+
+
+                                
+                                    {
+                                        showSecretCode ? <div> Secret Code: <DisplayCodeNumbers codeNumbers={codeNumbers} /> </div> : ""
+                                    }
+                                
+
+
+                                
+                                    <GuessList guessList={guessList} />
+                                
+
+                            </div>
+                        }
+
+                
+                        {
+                            showNewGameButton ? <Button variant="contained" color="secondary" onClick={handleNewGame}>Click for New Game</Button> : ""
+                        }
+                
+
             
-                            { 
-                                showInput1 && <Input1 handleShowNewGameButton={handleShowNewGameButton} handleShowInput1={handleShowInput1} codeNumbers={codeNumbers} guessList={guessList} handleUserGuess={handleUserGuess} revealSecretCode={revealSecretCode} />
-                            }
-
-
-                            {
-                                showSecretCode ? <div> Secret Code: <DisplayCodeNumbers codeNumbers={codeNumbers} /> </div> : ""
-                            }
-
-
-                            <GuessList guessList={guessList} />
-                        </div>
-                }
-
-
-                {
-                    showNewGameButton ? <button onClick={handleNewGame}>Click for New Game</button> : ""
-                }
-
+        </div>
     </Container>
     </>
 
