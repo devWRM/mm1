@@ -21,7 +21,8 @@ function GuessList({ message, guessList }) {
     
 
     return (
-        <div>   
+        <div>   {/*         <i class="material-icons">cloud</i>     */}
+                
                 <p> <b> You have { 10 - guessList.length } guesses. </b> </p>
                 {message}
 
