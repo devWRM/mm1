@@ -29,14 +29,7 @@ function GuessList({ guessList }) {
     return (
         <div>   {/*         <i class="material-icons">cloud</i>     */}
                 
-                <p> <b> You have { 10 - guessList.length } {guessList.length === 9 ? "guess" : "guesses"}. </b> </p>
                
-               
-                <Typography  variant="h7" color="textSecondary">
-                    🔴 Correct number in correct location | 
-                    ⚪️  Correct number in wrong location | 
-                    🔵 Incorrect number
-                </Typography>
 
 
                 
