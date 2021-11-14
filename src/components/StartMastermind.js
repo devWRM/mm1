@@ -6,7 +6,8 @@ import Input1 from './Input1.js';
 import GuessList from './GuessList.js';
 
 import Button from '@material-ui/core/Button';
-
+import { Typography } from '@material-ui/core';
+// import SaveIcon from '@material-ui/icons/Save';
 
 
 function StartMastermind() {
@@ -81,11 +82,12 @@ console.log(codeNumbers)
 
         {/* Show/Hide initial game message & button to start a new game */}
             { showStart && 
-                (<div>
-                    Start Mastermind
-                    <br />
-                    {/* <button onClick={fetchSecretCode}>click</button> */}
-                    <Button variant="contained" onClick={fetchSecretCode}>click</Button>
+                (   
+                    <div>
+                        <Typography variant="h1">Start Mastermind</Typography>
+                        <br />
+
+                        <Button variant="contained" color="primary" size="large" onClick={fetchSecretCode}>click</Button>
 
                     </div>
                 )
