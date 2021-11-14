@@ -86,11 +86,10 @@ function StartMastermind() {
 console.log(codeNumbers)
 // console.log("GUESSES", guessList)
 
-    return (
-        // <div style={{marginTop: "10px"}}> 
+    return ( 
 
     <>
-    <container>
+    <Container>
 
         {/* Show/Hide initial game message & button to start a new game */}
             { showStart && 
@@ -110,27 +109,47 @@ console.log(codeNumbers)
             }
 
 
+
                 {
-                    showSecretCode ? <DisplayCodeNumbers codeNumbers={codeNumbers} /> : ""
+                    showNewGameButton ? <button onClick={handleNewGame}>Click for New Game</button> : ""
                 }
 
-
-
-                { 
-                    showInput1 && <Input1 handleShowNewGameButton={handleShowNewGameButton} handleShowInput1={handleShowInput1} codeNumbers={codeNumbers} guessList={guessList} handleUserGuess={handleUserGuess} revealSecretCode={revealSecretCode} />
-                }
 
 
                 {
-                    showGuesses && <GuessList guessList={guessList} />
+                    showGuesses && 
+                        <div>
+                            <Typography  variant="h5" color="textPrimary">
+                                You have { 10 - guessList.length } {guessList.length === 9 ? "guess" : "guesses"}. 
+                            </Typography>
+                
+                
+                            <Typography  variant="h7" color="textSecondary">
+                                🔴 correct number & correct location | 
+                                ⚪️  correct number & wrong location | 
+                                🔵 incorrect number
+                            </Typography>
+            
+                            { 
+                                showInput1 && <Input1 handleShowNewGameButton={handleShowNewGameButton} handleShowInput1={handleShowInput1} codeNumbers={codeNumbers} guessList={guessList} handleUserGuess={handleUserGuess} revealSecretCode={revealSecretCode} />
+                            }
+
+
+                            {
+                                showSecretCode ? <div> Secret Code: <DisplayCodeNumbers codeNumbers={codeNumbers} /> </div> : ""
+                            }
+
+
+                            <GuessList guessList={guessList} />
+                        </div>
                 }
 
 
                 {
-                    showNewGameButton ? <button onClick={handleNewGame} style={{ marginTop: "20px"}}>Click for New Game</button> : ""
+                    showNewGameButton ? <button onClick={handleNewGame}>Click for New Game</button> : ""
                 }
 
-    </container>
+    </Container>
     </>
 
     )
@@ -140,4 +159,4 @@ export default StartMastermind;
  
  
  
-            {/* </div> */}
+           
