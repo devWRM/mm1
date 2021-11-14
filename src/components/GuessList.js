@@ -9,14 +9,16 @@ import { Typography } from '@material-ui/core';
 
 
 
-function GuessList({ message, guessList }) {    
+function GuessList({ guessList }) {    
     // debugger;
 
     let guesses =   guessList.map(guess => {
                             
                         return <div key={guess.id}>
                             
-                            { guess.code} [ {guess.status} ]
+                            {/* { guess.code} [ {guess.status} ] */}
+
+                            <Typography variant="h5" color="textPrimary" gutterBottom marginTop="10px">{ guess.code} [ {guess.status} ]</Typography>
 
 
                         </div>
@@ -29,15 +31,14 @@ function GuessList({ message, guessList }) {
                 
                 <p> <b> You have { 10 - guessList.length } {guessList.length === 9 ? "guess" : "guesses"}. </b> </p>
                
-                {/* {message} */}
-
-                {/* { 10 - guessList.length === 0 && <div>Sorry... Try again!</div>} */}
                
-                <Typography  variant="h7" color="textSecondary" gutterBottom>
+                <Typography  variant="h7" color="textSecondary">
                     🔴 Correct number in correct location | 
                     ⚪️  Correct number in wrong location | 
                     🔵 Incorrect number
                 </Typography>
+
+
                 
                 { guesses }
 
