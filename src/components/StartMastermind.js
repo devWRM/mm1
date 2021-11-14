@@ -15,6 +15,7 @@ function StartMastermind() {
     const[codeNumbers, updateCodeNumbers] = useState("")
     const[guessList, updateGuessList] = useState([])        //<<= []
     const[showStart, updateStart] = useState(true)
+    const[showGuesses, updateShowGuesses] = useState(false)  // <<= false initial
     const[showInput1, updateShowInput1] = useState(false)
     const[showSecretCode, updateShowSecretCode] = useState(false)  // <<= false initial
     const[showNewGameButton, updateShowNewGameButton] = useState(false)
@@ -33,8 +34,10 @@ function StartMastermind() {
             updateCodeNumbers(codedNumbers)
         })
 
+        // Hide guesses to restrict user access
         // Hide start to restrict user access
         // Reveal the form for user guess input
+        updateShowGuesses(!showGuesses)
         updateStart(!showStart)
         updateShowInput1(!showInput1)
         
@@ -61,10 +64,16 @@ function StartMastermind() {
         updateCodeNumbers("")
         updateGuessList([])
         updateStart(true)
+        updateShowGuesses(!showGuesses)
         updateShowInput1(false)
         updateShowSecretCode(false)
         updateShowNewGameButton(false)
     }
+
+    // Give user access to guesses functionality
+    // function handleShowGuesses() {
+    //     updateShowGuesses(!showGuesses)
+    // }
 
     // Shows the new game button when game is NOT in progress
     // Hides the new game button when a game IS in progress
@@ -112,7 +121,9 @@ console.log(codeNumbers)
                 }
 
 
-                <GuessList guessList={guessList} />
+                {
+                    showGuesses && <GuessList guessList={guessList} />
+                }
 
 
                 {
