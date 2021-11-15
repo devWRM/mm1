@@ -18,7 +18,7 @@ function App() {
         >
           {/* LinkedIn */}
           <br />
-          MASTERMIND
+          Game Instructions
         </a>
 
       </header>
