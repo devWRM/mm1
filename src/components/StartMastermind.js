@@ -95,7 +95,7 @@ console.log(codeNumbers)
             { showStart && 
                 (   
                     <div>
-                        <Typography variant="h1">Start Mastermind</Typography>
+                        <Typography variant="h2">Start Mastermind</Typography>
                         <br />
 
                         <Button  variant="contained" color="primary" size="large" onClick={fetchSecretCode}>
