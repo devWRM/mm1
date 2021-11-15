@@ -60,8 +60,14 @@ The game concludes when a player wins or after attempting 10 guesses (whichever 
 
 I included a link in the header that the player can always access for a video demonstration of how to play a Mastermind game. I also implemented states to give and restrict player access based on the status of the game.
 
-CHALLENGES
+### CHALLENGES
 The most challenging part was when I had to conduct a major refactor to change the guessList from containing arrays of only the number guesses of the player, to containing guess objects storing a unique id, the guess code, and status properties and values. I did this because initially, all I could display was the player's guesses but I needed to be able to display the status of each guess. Using an object instead of an array was the most efficient way to accomplish this.
+
+Another challenging process was learning how to use Material UI. This was my first time implementing it in an application. For styling, I relied on some default styling from React combined with some basic Material UI styling to deliver a minimalist visual. I listed a great video resource on Material UI below:
+
+Learn Material UI in One Hour - React Material UI Project Tutorial [2021]
+by: JavaScript Mastery
+	https://www.youtube.com/watch?v=Xoz31I1FuiY
 
 
 
