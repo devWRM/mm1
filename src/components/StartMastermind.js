@@ -54,7 +54,7 @@ function StartMastermind() {
         updateShowSecretCode(revealStatus)
     }
 
-    // 
+    
     function handleShowInput1(showStatus) {
         updateShowInput1(showStatus)
     }
@@ -70,10 +70,6 @@ function StartMastermind() {
         updateShowNewGameButton(false)
     }
 
-    // Give user access to guesses functionality
-    // function handleShowGuesses() {
-    //     updateShowGuesses(!showGuesses)
-    // }
 
     // Shows the new game button when game is NOT in progress
     // Hides the new game button when a game IS in progress
@@ -107,9 +103,6 @@ console.log(codeNumbers)
             }
 
 
-
-
-
         <div>
                     <div style={{ margin: '10px'}}>
                         {
@@ -117,46 +110,28 @@ console.log(codeNumbers)
                         }
                     </div>
                 
-
-
-                
                         {
                             showGuesses && 
-                            <div>
-                                
-                                
+                            <div>                                                                
                                     <Typography  variant="p" color="textSecondary">
                                         🔴 correct number & correct location | 
                                         ⚪️  correct number & wrong location | 
                                         🔵 incorrect number
                                     </Typography>
-                                
-
-
-                                
+                                                                
                                     <Typography  variant="h5" color="textPrimary"  style={{ padding: '10px'}}>
                                         You have { 10 - guessList.length } {guessList.length === 9 ? "guess" : "guesses"}. 
-                                    </Typography>
-                                
-
-
+                                    </Typography>                               
                     
                                     { 
                                         showInput1 && <Input1 handleShowNewGameButton={handleShowNewGameButton} handleShowInput1={handleShowInput1} codeNumbers={codeNumbers} guessList={guessList} handleUserGuess={handleUserGuess} revealSecretCode={revealSecretCode} />
                                     }
-
-
                                 
                                     {
                                         showSecretCode ? <div  style={{ margin: '20px'}}> Secret Code: <DisplayCodeNumbers codeNumbers={codeNumbers} /> </div> : ""
                                     }
-                                
-
-
-                                
-                                    <GuessList guessList={guessList} />
-                                
-
+                                                              
+                                    <GuessList guessList={guessList} />                                
                             </div>
                         }
 
@@ -165,10 +140,9 @@ console.log(codeNumbers)
                         {
                             showNewGameButton ? <Button variant="contained" color="secondary" onClick={handleNewGame}>Click for New Game</Button> : ""
                         }
-                    </div>
-
-            
+                    </div>           
         </div>
+        
     </Container>
     </>
 
