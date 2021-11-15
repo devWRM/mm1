@@ -1,15 +1,20 @@
-# About Mastermind
+#   MASTERMIND
+
+
+
+
+## About Mastermind
 
 This Mastermind game application allows a user to play "against" the computer. A player tries to guess the four digit number combination. At the end of each attempt to guess the four digit number combination, the computer will provide feedback (red, white, or blue circles) indicating whether the player guessed a correct number in the correct location (red circle), guessed a correct number but in the wrong location (white circle), or guessed an incorrect number (blue circle). A player must guess the right number combinations within 10 attempts to win the game.
 
-# Tech Stack
+## Tech Stack
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). The Material-UI library was installed to style components.
 
 * React
 * Material-UI
 
-# How to run Mastermind locally on your computer
+## How to run Mastermind locally on your computer
 
 * You must have React installed on your computer
 * Fork and clone the Mastermind repo from Github:
@@ -24,7 +29,7 @@ https://github.com/devWRM/mm1
 * keep track of scores
 * add a timer
 
-### Application Build
+## Application Build
 
 I was challenged to build a Mastermind game in which a player could play against the computer. I was not familar with the game so I researched and discovered it was similar to a game called Battleship which I was familiar with.
 
