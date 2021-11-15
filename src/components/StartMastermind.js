@@ -111,10 +111,11 @@ console.log(codeNumbers)
 
 
         <div>
-                
+                    <div style={{ margin: '10px'}}>
                         {
                             showNewGameButton ? <Button variant="contained" color="secondary" onClick={handleNewGame}>Click for New Game</Button> : ""
                         }
+                    </div>
                 
 
 
@@ -124,7 +125,7 @@ console.log(codeNumbers)
                             <div>
                                 
                                 
-                                    <Typography  variant="h7" color="textSecondary">
+                                    <Typography  variant="p" color="textSecondary">
                                         🔴 correct number & correct location | 
                                         ⚪️  correct number & wrong location | 
                                         🔵 incorrect number
@@ -133,7 +134,7 @@ console.log(codeNumbers)
 
 
                                 
-                                    <Typography  variant="h5" color="textPrimary">
+                                    <Typography  variant="h5" color="textPrimary"  style={{ padding: '10px'}}>
                                         You have { 10 - guessList.length } {guessList.length === 9 ? "guess" : "guesses"}. 
                                     </Typography>
                                 
@@ -147,7 +148,7 @@ console.log(codeNumbers)
 
                                 
                                     {
-                                        showSecretCode ? <div> Secret Code: <DisplayCodeNumbers codeNumbers={codeNumbers} /> </div> : ""
+                                        showSecretCode ? <div  style={{ margin: '20px'}}> Secret Code: <DisplayCodeNumbers codeNumbers={codeNumbers} /> </div> : ""
                                     }
                                 
 
@@ -159,11 +160,12 @@ console.log(codeNumbers)
                             </div>
                         }
 
-                
+
+                    <div  style={{ marginBottom: '50px'}}>
                         {
                             showNewGameButton ? <Button variant="contained" color="secondary" onClick={handleNewGame}>Click for New Game</Button> : ""
                         }
-                
+                    </div>
 
             
         </div>
