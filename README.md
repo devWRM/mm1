@@ -1,6 +1,8 @@
 #   MASTERMIND
 
-[Video demonstration of Mastermind](https://youtu.be/VTS817iEO7c)
+![](Mastermind.png)
+
+[Video demonstration of Mastermind](https://youtu.be/VTS817iEO7c "Video demonstration of Mastermind")
 
 
 ## About Mastermind
