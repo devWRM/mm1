@@ -22,11 +22,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 https://github.com/devWRM/mm1
 
 * cd into the mm1 directory
-* if using npm run:
+* npm install dependencies run:
     npm install
+* npm start application run:
     npm start
-* if using yarn run:
+* yarn install dependencies run:
     yarn install (or: yarn add) (or: yarn)
+* yarn start application run:
     yarn start
     
 ## Future Features
