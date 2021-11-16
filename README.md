@@ -26,7 +26,7 @@ https://github.com/devWRM/mm1
     npm install
     npm start
 * if using yarn run:
-    yarn install
+    yarn install (or yarn add) (or yarn)
     yarn start
     
 ## Future Features
