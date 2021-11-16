@@ -50,20 +50,20 @@ The game initiates with the selection of a secret code, necessary to compare aga
 
 Once the player clicks start, a secret code is fetched but kept hidden from the player using the showSecretCode state until the game is over and the secret code is revealed. 
 
-### DisplayCodeNumbers component
+#### DisplayCodeNumbers component
 I built the DisplayCodeNumbers to display the secret code.
 
-### Input1 component
+#### Input1 component
 The showGuesses state gives the player access to a form to input a 4 digit number guess. I put in conditions that will only allow 4 numbers from 0-7 to be entered to prevent bad data being entered.
 
 After the player enters an appropriate guess, it's stored in a userGuess object with 3 properties: a unique id set using Math.random, a code which is the player's guess, and a status based on a comparison of the userGuess code to the secret code. I used red, white, and blue circles (spheres) to give the player "hints" as a status for each guess. And if the guess cracks the code, the status is given a winning message.
 
 The object is returned to the StartMastermind component containing all the information necessary to display to the player. 
 
-* GuessList component
+#### GuessList component
 The StartMastermind component updates the guessList state then passes the guessList state variable as props to the GuessList component. The prop is destructured then mapped over to dispay each guess and its status.
 
-* End Game
+#### End Game
 The game concludes when a player wins or after attempting 10 guesses (whichever happens first). Once the game is over, the player is given access to a button to start a new game which resets the Mastermind application back to its original page and initial state.
 
 I included a link in the header that the player can always access for a video demonstration of how to play a Mastermind game. I also implemented states to give and restrict player access based on the status of the game.
