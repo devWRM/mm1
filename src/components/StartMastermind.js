@@ -79,7 +79,7 @@ function StartMastermind() {
 
 
 
-console.log(codeNumbers)
+// console.log(codeNumbers)
 // console.log("GUESSES", guessList)
 
     return ( 
