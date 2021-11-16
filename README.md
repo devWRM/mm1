@@ -33,6 +33,18 @@ https://github.com/devWRM/mm1
 * yarn start application run:
     yarn start
     
+## How to play Mastermind
+
+NOTE Click the Game Instructions link for a video detailing how to play Mastermind
+
+Start the Mastermind game by clicking the start button:
+* enter 4 numbers between 0 and 7 then click submit
+* use the 4 colored spheres (circles) to plan your next guess attempt
+* red sphere: correct number & correct location
+* white sphere: correct number but wrong location
+* blue sphere: incorrect number
+* repeat until you guess the right secret code or you make 10 guesses
+
 ## Future Features
 
 * give players the ability to adjust the number of numbers that are used (select difficulty level)
