@@ -1,6 +1,6 @@
 #   MASTERMIND
 
-![](Mastermind.png)
+![](Mastermind.jpg)
 
 [Video demonstration of Mastermind](https://youtu.be/VTS817iEO7c "Video demonstration of Mastermind")
 
