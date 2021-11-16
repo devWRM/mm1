@@ -9,7 +9,7 @@ This Mastermind game application allows a user to play "against" the computer. A
 
 ## Tech Stack
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). The Material-UI library was installed to style components.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). The Material-UI library was installed to add additional styling to components.
 
 * React
 * Material-UI
@@ -21,8 +21,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 https://github.com/devWRM/mm1
 
-* cd into the mm1 directory then run: npm start
-
+* cd into the mm1 directory
+* if using npm run:
+    npm install
+    npm start
+* if using yarn run:
+    yarn install
+    yarn start
+    
 ## Future Features
 
 * give players the ability to adjust the number of numbers that are used (select difficulty level)
